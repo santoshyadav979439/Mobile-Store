@@ -1,0 +1,92 @@
+{
+	"mobiles": [
+		{
+			"id": 1,
+			"name": "samsung",
+			"price": 10000,
+			"model": "Galaxy",
+			"color": "Black",
+			"Size": "8 inch",
+			"ram": "4GB",
+			"storage": "128GB",
+			"os": "Andriod"
+		},
+		{
+			"id": 2,
+			"name": "oneplus",
+			"price": 40000,
+			"model": "8T",
+			"color": "White",
+			"Size": "8 inch",
+			"ram": "4GB",
+			"storage": "128GB",
+			"os": "Andriod"
+		},
+		{
+			"id": 3,
+			"name": "iphone",
+			"price": 50000,
+			"model": "iPhoneX",
+			"color": "Silver",
+			"Size": "8 inch",
+			"ram": "4GB",
+			"storage": "128GB",
+			"os": "iphone"
+		},
+		{
+			"id": 4,
+			"name": "LG",
+			"price": 7000,
+			"model": "LGModel",
+			"color": "Gold",
+			"Size": "8 inch",
+			"ram": "4GB",
+			"storage": "32GB",
+			"os": "Andriod"
+		},
+		{
+			"id": 5,
+			"name": "Sony",
+			"price": 8000,
+			"model": "SonyModel",
+			"color": "Black",
+			"Size": "8 inch",
+			"ram": "4GB",
+			"storage": "64GB",
+			"os": "Andriod"
+		},
+		{
+			"id": 6,
+			"name": "samsung",
+			"price": 2500,
+			"model": "Basic",
+			"color": "Black",
+			"Size": "4 inch",
+			"ram": "0.5GB",
+			"storage": "1GB",
+			"os": "Java"
+		},
+		{
+			"id": 7,
+			"name": "OnePlus",
+			"price": 30000,
+			"model": "6T",
+			"color": "Gold",
+			"Size": "8 inch",
+			"ram": "4GB",
+			"storage": "128GB",
+			"os": "Andriod"
+		},
+		{
+			"id": 8,
+			"name": "IPhone",
+			"price": 70000,
+			"model": "10X",
+			"color": "Black",
+			"Size": "8 inch",
+			"ram": "4GB",
+			"storage": "128GB",
+			"os": "iphone"
+		}
+	]
+}

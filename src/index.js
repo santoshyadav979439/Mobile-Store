@@ -1,13 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './container/App';
 import reportWebVitals from './reportWebVitals';
-
+import {Switch,Route, BrowserRouter} from "react-router-dom";
+import FullMobile from "./container/FullMobile/FullMobile";
+import Login from "./container/Login/Login";
+import CartMobile from "./container/CartMobiles/CartMobile"
+const route=(
+<Switch>
+<Route path ="/mobiles/cart" component={CartMobile} />
+<Route path="/mobiles/:id" component={FullMobile} />
+<Route path="/mobiles" component={App}/>
+<Route path ="/" exact component={Login}/>
+</Switch>
+)
 ReactDOM.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+   <BrowserRouter>
+   {route}
+   </BrowserRouter>
+    </React.StrictMode>,
   document.getElementById('root')
 );
 

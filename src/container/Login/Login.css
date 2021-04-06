@@ -1,0 +1,25 @@
+.LoginContainer{
+display: grid;
+grid-template-columns: 100%;
+margin: 10px;
+border: 1px solid black;
+height: 100vh;
+}
+header{
+  text-align: center;
+}
+.LoginContainer div{
+  text-align: center;
+}
+input{
+    height: 40px;
+    width: 200px;
+    margin: 10px;
+}
+button{
+    width:100px;
+    margin: 10px;
+    border-radius: 5px;
+    height: 30px;
+  
+}
