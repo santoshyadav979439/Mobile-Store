@@ -1,18 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {FaUser} from "react-icons/fa"
 import {FaShoppingCart} from "react-icons/fa"
 import classes from "./Header.module.css"
 import {Link,withRouter} from "react-router-dom"
 const Header = React.memo((props) => {
-    console.log(props)
+    const [isAuth, setAuth]=useState(false)
+   const logoutClickHandler=()=>{
+       console.log("inside logout")
+       localStorage.removeItem("username")
+       console.log(localStorage.username)
+    setAuth(null) 
+   }
     const cartClickHandler= ()=>{
         props.history.push("/mobiles/cart")
       }
       let authenticatedData=null;
       if(localStorage.username){
+          //(true);
         authenticatedData= (<>
          <FaUser  style={{width:"40px",height:"30px",marginLeft:"70%"}}></FaUser>
-        <span>{localStorage.username}</span> 
+         <select onChange={logoutClickHandler}>
+             <option style={{display:"none"}}>{localStorage.username}</option>
+             <option  style={{cursor:"pointer"}}>Logout</option>
+         </select>
          <FaShoppingCart style={{width:"40px",height:"40px",float:"right", cursor:"pointer"}} onClick={cartClickHandler}></FaShoppingCart></>)}
         else{
             authenticatedData= (<div className={classes.rightDiv}>

@@ -41,11 +41,13 @@ setMobiles(newData)
 
     }
   }
-  const quantityChangeHandler=(event)=>{
+  const quantityChangeHandler=(event,id)=>{
 const mobilesData=mobiles.map(el=>{
+    if(el.id==id)
     el.quantity=event.target.value;
     return el;
 })
+
 setMobiles(mobilesData)
   }
   const closeOrderPlacedModal=()=>{
@@ -73,7 +75,7 @@ return (
                               return  <tr>
                                     <td>{el.name}</td>
                                     <td>{el.model}</td>
-                                    <td><input type="text" value={el.quantity} onChange={quantityChangeHandler}/></td>
+                                    <td><input type="text" value={el.quantity} onChange={(event)=>quantityChangeHandler(event,el.id)}/></td>
                                     <td>{el.price}</td>
                                     <td><button onClick={()=>removeMobileHandler(el.id)}>Remove</button></td>
                                 </tr>

@@ -8,3 +8,7 @@
     background-color: white;
     cursor: pointer;
 }
+select{
+    text-transform: uppercase;
+    border: none;
+}
