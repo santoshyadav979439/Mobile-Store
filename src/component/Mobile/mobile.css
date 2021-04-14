@@ -1,13 +1,15 @@
 .Mobile{
-    height: 150px;
-    width: 150px;
+    height: 200px;
+    width: 280px;
     margin: 5px;
-    box-shadow: 0px 0px #eee;
+    box-shadow: 0px 2px 3px #ccc;
     border: 1px solid grey;
     padding: 10px;
+    display: block;
+    text-align: center;
 }
 .Buttons{
-    display: inline-block;
+    display: inline-block !important;
     
 }
 button{

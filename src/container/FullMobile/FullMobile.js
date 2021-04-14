@@ -21,7 +21,7 @@ const FullMobile = (props) => {
     }
     return (
         <div className="FullMobileContainer">
-        <Header click={openCartHandler}/>
+        
         <div className="MobileContainer">
             
             <div className="MobileLogo">

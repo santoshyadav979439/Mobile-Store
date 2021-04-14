@@ -17,7 +17,7 @@ const Login = (props) => {
     }
     return (
         <div className="LoginContainer">
-            <header>Mob Online</header>
+            
             <div>
                 <input type="text" placeholder="Username"  value={username} 
                 onChange={(event)=>{setUserName(event.target.value)}} /> <br/>

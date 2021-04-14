@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import "./mobile.css";
 import {Link} from "react-router-dom"
+import { ImMobile } from "react-icons/im";
 const mobile = React.memo((props) => {
 const addToCartHandler =(props)=>{
     const data={
@@ -31,9 +32,10 @@ const onClickOfViewButton=()=>{
 }
     return (
         <div className="Mobile">
-            Name: {props.name}
-            <br/>
-            Price: {props.price}
+            <ImMobile style={{width:"50px",height:"50px",alignContent:"center"}}/>
+            <div>Name: {props.name}</div>
+            
+           <div>Price: {props.price}</div> 
             <div className="Buttons">
            <Link to={{
                pathname:"/mobiles/"+props.id,

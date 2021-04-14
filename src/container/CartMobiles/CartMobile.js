@@ -1,15 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import classes from "./CartMobile.module.css";
-import Header from "../../component/Header/Header"
-
-const CartMobile = () => {
-   const data=JSON.parse(localStorage.cart);
-    console.log(data)
+import Modal from '../../component/Modal/Modal'
+import {withRouter} from 'react-router-dom';
+import PlaceOrderModal from "../../component/Modal/PlaceOrderModal"
+const CartMobile = (props) => {
+    let data=[];
+    if(localStorage.cart)
+    data=JSON.parse(localStorage.cart);
+   
     const[mobiles,setMobiles]=useState(data);
     const [totalPrice,setTotalPrice]=useState(0);
+    const [show, setShow] = useState(false);
+    const [showPlaceOrder, setShowPlaceOrder]= useState(false);
+    
     useEffect(()=>{
+        if(mobiles.length>0){
      const price=   mobiles.reduce((ac,el)=>ac+parseInt(el.price),0);
         setTotalPrice(price);
+        }
     },[])
 const removeMobileHandler=(id)=>{
     console.log(id)
@@ -21,7 +29,29 @@ localStorage.cart=JSON.stringify(newData)
 setMobiles(newData)
   }
   const placeOrderHandler=()=>{
+      console.log(localStorage.username)
+    if(!localStorage.username) 
+    setShow(true)
+    else{
+      setShowPlaceOrder(true);
+      console.log(localStorage)
+     delete localStorage.cart;
+ 
+    
 
+    }
+  }
+  const quantityChangeHandler=(event)=>{
+const mobilesData=mobiles.map(el=>{
+    el.quantity=event.target.value;
+    return el;
+})
+setMobiles(mobilesData)
+  }
+  const closeOrderPlacedModal=()=>{
+    setShowPlaceOrder(false)
+    props.history.push("/mobiles")
+    
   }
 return (
         <div className={classes.CartContainer}>
@@ -43,19 +73,24 @@ return (
                               return  <tr>
                                     <td>{el.name}</td>
                                     <td>{el.model}</td>
-                                    <td>{el.quantity}</td>
+                                    <td><input type="text" value={el.quantity} onChange={quantityChangeHandler}/></td>
                                     <td>{el.price}</td>
                                     <td><button onClick={()=>removeMobileHandler(el.id)}>Remove</button></td>
                                 </tr>
                         })}
                     </tbody>
                 </table>
-            ):null}
+            ):<h1>There is no item in cart</h1>}
+            {mobiles.length>0?(
                 <div className={classes.OrderDiv}>
                 <span><b>Total:</b> {totalPrice}</span>
                 <br/>
-                <button style={{marginLeft:"80%"}}>Place Order</button>
+                <button style={{marginLeft:"80%"}} onClick={placeOrderHandler}>Place Order</button>
+                <Modal show={show} closeClicked={()=>setShow(false)}></Modal>
+                <PlaceOrderModal show={showPlaceOrder} closeClicked={closeOrderPlacedModal}></PlaceOrderModal>
                 </div>
+            ):null}
+                
                
                </div>
 
@@ -63,4 +98,4 @@ return (
     );
 };
 
-export default CartMobile;
+export default withRouter(CartMobile);

@@ -4,11 +4,7 @@
   flex-wrap: nowrap;
 }
 .FullMobileContainer{
-    display: grid;
-    border: 1px solid black;
-    grid-template-columns: 100%;
-  height: 100vh;
-    margin: 5px;
+  
 }
 header{
     height: 50px;
